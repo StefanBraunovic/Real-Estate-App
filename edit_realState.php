@@ -26,7 +26,7 @@ $nekretnina = mysqli_fetch_assoc($res);
 
 <body>
 
-    <form action="./edit_realSate_back.php" method="POST" enctype="multipart/form-data">
+    <form action="./edit_realSate_back.php" method="POST" enctype="multipart/form-data" class="form-control">
 
 
         <input type="hidden" name="id" value="<?= $id ?>">

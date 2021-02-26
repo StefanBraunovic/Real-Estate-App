@@ -1,13 +1,18 @@
 .wrapper {
 	display: flex;
-	align-items: stretch;
+	width: 100%;
 }
 
 .content {
-	display: flex;
-	flex-direction: row;
-	padding: 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 50px;
 	gap: 20px;
+}
+
+.dugmad {
+	display: flex;
+	grid-gap: 5px;
 }
 
 #sidebar.active {
@@ -127,6 +132,11 @@ ul ul a {
 .share:hover {
 	text-decoration: none;
 	opacity: 0.8;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
 }
 
 @media (max-width: 768px) {

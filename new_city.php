@@ -1,25 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New city</title>
-</head>
+include 'header.php';
 
-<body>
+?>
 
-    <form action="./add_new_city.php" method="POST">
+<div class="wrapper">
+
+    <!-- Sidebar -->
+    <?php
+
+    include 'sidebar.php';
+
+    ?>
+
+    <!-- Page Content -->
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+
+                </button>
+
+            </div>
+        </nav>
+        <h4 class="text-center mt-4">Dodaj novi grad</h4>
+        <div class="content">
+            <form action="./add_new_city.php" method="POST" class="form-control">
 
 
-        <input type="text" name="name" placeholder="Name">
+                <input type="text" name="name" placeholder="Name">
 
 
-        <button>SAVE</button>
+                <button>dodaj</button>
 
 
-    </form>
+            </form>
+        </div>
+    </div>
 
-</body>
 
-</html>
+
+
+
+    </body>
+
+    <?php
+
+    include 'footer.php';
+
+    ?>
