@@ -23,14 +23,7 @@ if (isset($_GET['tip']) && $_GET['tip'] != "") {
     $tip = strtolower($_GET['tip']);
     $where_arr[] = "lower(tip) LIKE '%$tip%' ";
 }
-// if (isset($_GET['adresa']) && $_GET['adresa'] != "") {
-//     $adresa = strtolower($_GET['adresa']);
-//     $where_arr[] = "lower(adresa) LIKE '%$adresa%' ";
-// }
-// if (isset($_GET['email']) && $_GET['email'] != "") {
-//     $email = strtolower($_GET['email']);
-//     $where_arr[] = "lower(email) LIKE '%$email%' ";
-// }
+
 
 $where_str = implode(" AND ", $where_arr);
 // var_dump($where_str);
@@ -77,6 +70,7 @@ include 'header.php';
 
     <!-- Page Content -->
     <div id="content">
+
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
 
@@ -87,15 +81,17 @@ include 'header.php';
 
             </div>
 
-            <form action="./index.php" method="GET">
-                <input type="text" name="name" id="naziv_grada" placeholder="naziv grada">
-                <input type="number" name="cijena1" placeholder="od">
-                <input type="number" name="cijena2" placeholder="do">
-                <input type="number" name="povrsina" placeholder="povrsina">
-                <input type="text" name="tip" placeholder="tip nekretnine">
-                <button>Search</button>
-            </form>
+
         </nav>
+        <form class="search-form" action="./index.php" method="GET">
+            <input type="text" name="name" id="naziv_grada" placeholder="naziv grada">
+
+            <input type="number" name="cijena1" placeholder="od €">
+            <input type="number" name="cijena2" placeholder="do €">
+            <input type="number" name="povrsina" placeholder="m²">
+            <input type="text" name="tip" placeholder="tip nekretnine">
+            <button class="btn btn-outline-primary btn-sm">Pretrazi</button>
+        </form>
 
         <div class="content">
             <?php
@@ -107,12 +103,12 @@ include 'header.php';
                 $link1 = "<a href=\"delete_realE.php?id=$id_temp\">izbrisi</a>";
 
 
-                echo " <div class=\"card mb-4 text-white bg-dark\"> ";
-                echo "<img class=card-img-top src=" . $row['fotografija_id'] . " >";
-                echo "<div class=card-body>";
+                echo " <div class=\"card  text-white bg-dark\"> ";
+                echo "<img  src=" . $row['fotografija_id'] . "  >";
+                echo "<div class=\"card-body\">";
                 echo "<h5 class=\"card-title\">" . $row['city_name'] . "</h5>";
                 echo "<span>" . $row['tip'] . "</span>";
-                echo "<p>Cijena: "  . $row['cijena'] . " €</p>";
+                echo "<p class=\"mt-3\">Cijena: "  . $row['cijena'] . " €</p>";
                 echo "<p>Povrsina: " . $row['povrsina'] . " m²</p>";
                 echo " <div class=\"dugmad\"> ";
                 echo "<button class=\"btn btn-outline-light btn-sm\"> " . $link2 .  "</button>";
@@ -128,11 +124,12 @@ include 'header.php';
 
         </div>
     </div>
+</div>
 
 
 
-    <?php
+<?php
 
-    include 'footer.php';
+include 'footer.php';
 
-    ?>
+?>

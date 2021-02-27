@@ -9,7 +9,7 @@ isset($_POST['tip']) ? $tip = $_POST['tip'] : exit("Greska 1 - morate unijeti im
 
 // upit 
 
-$sql_insert = "INSERT INTO tip_nekretnine (tip)VALUES('$tip')";
+$sql_insert = "INSERT INTO tip_nekretnine (tip) VALUES ('$tip')";
 
 
 $res_insert = mysqli_query($dbconn, $sql_insert);

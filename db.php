@@ -1,3 +1,3 @@
 <?php
 
-$dbconn = mysqli_connect("localhost", "root", "", "real_state");
+$dbconn = mysqli_connect("localhost", "root", "", "real_estate");

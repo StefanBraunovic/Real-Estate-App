@@ -3,7 +3,8 @@
 include 'db.php';
 include 'functions.php';
 
-
+// var_dump($_POST);
+// exit;
 
 
 isset($_POST['id']) && is_numeric($_POST['id'])  ? $id = $_POST['id'] : exit("ID_error...");
@@ -29,6 +30,9 @@ if (isset($_FILES['fotografija_id']) && $_FILES['fotografija_id']['tmp_name'] !=
 }
 
 
+
+
+
 // upit 
 
 $sql_update = "UPDATE  nekretnina SET 
@@ -44,6 +48,9 @@ $update_photo
 WHERE id=$id
 
 ";
+
+
+
 
 $res_update = mysqli_query($dbconn, $sql_update);
 

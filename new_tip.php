@@ -25,12 +25,12 @@ include 'header.php';
 
             </div>
         </nav>
-        <h4 class="text-center mt-4">Dodaj novi tip nekretnine</h4>
         <div class="content">
             <form action="./add_new_tip.php" method="POST" class="form-control">
+                <h4 class="text-center  mb-2">Dodaj novi tip nekretnine</h4>
 
 
-                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="tip" placeholder="Name">
 
 
                 <button>dodaj</button>

@@ -25,12 +25,13 @@ include 'header.php';
 
             </div>
         </nav>
-        <h4 class="text-center mt-4">Dodaj novi grad</h4>
         <div class="content">
             <form action="./add_new_city.php" method="POST" class="form-control">
+                <h4 class="text-center mt-4">Dodaj novi grad</h4>
+                <br>
 
 
-                <input type="text" name="name" placeholder="Name">
+                <input type=" text" name="name" placeholder="Name">
 
 
                 <button>dodaj</button>

@@ -1,4 +1,7 @@
 <?php
+
+
+
 function uploadPhoto($file)
 {
     $original_name = $_FILES[$file]['name'];

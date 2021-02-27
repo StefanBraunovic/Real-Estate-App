@@ -29,78 +29,116 @@ include 'header.php';
 
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
+                        <span></span>
                     </button>
 
                 </div>
             </nav>
-            <h4 class="text-center">Dodaj novu nekretninu</h4>
-            <form action="./add_new_rs.php" method="POST" enctype="multipart/form-data">
+            <form action="./add_new_rs.php" method="POST" class="nova-nekretnina" enctype="multipart/form-data">
+                <h4 class="text-center">Dodaj novu nekretninu</h4>
+
+
+                <div class="form-group">
+                    <label for="Grad">Grad:</label>
+                    <select class="form-control" name="grad_id" id="grad" require>
+                        <option value="">izaberi grad</option>
+                        <?php
+                        $sql = "SELECT * FROM grad order by name ASC";
+                        $res = mysqli_query($dbconn, $sql);
+                        while ($row = mysqli_fetch_assoc($res)) {
+                            $id_temp = $row['id'];
+                            $name_temp = $row['name'];
+                            echo "<option value=\"$id_temp\">$name_temp</option>";
+                        }
+
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tip_oglasa_id">Tip oglasa:</label>
+
+                    <select class="form-control" name="tip_oglasa_id" id="tip_oglasa_id" require>
+                        <option value="">izaberi tip oglasa</option>
+                        <?php
+                        $sql = "SELECT * FROM tip_oglasa ";
+                        $res = mysqli_query($dbconn, $sql);
+                        while ($row = mysqli_fetch_assoc($res)) {
+                            $id_temp = $row['id'];
+                            $name_temp = $row['naziv_oglasa'];
+                            echo "<option value=\"$id_temp\">$name_temp</option>";
+                        }
+
+                        ?>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="tip_nekretnine_id">Tip Nekretnine:</label>
+
+                    <select class="form-control" name="tip_nekretnine_id" id="" require>
+                        <option value="">-Izaberi tip nekretnine-</option>
+                        <?php
+                        $sql = "SELECT * FROM tip_nekretnine ";
+                        $res = mysqli_query($dbconn, $sql);
+                        while ($row = mysqli_fetch_assoc($res)) {
+                            $id_temp = $row['id'];
+                            $name_temp = $row['tip'];
+                            echo "<option value=\"$id_temp\">$name_temp</option>";
+                        }
+
+                        ?>
+                    </select>
+                </div>
 
 
 
+                <div class="form-group">
+                    <label for="povrsina">Povrsina:</label>
+                    <input type="number" name="povrsina" id="povrsina"> m²
+                </div>
 
-                <select name="grad_id" id="" require>
-                    <option value="">-choose city-</option>
-                    <?php
-                    $sql = "SELECT * FROM grad order by name ASC";
-                    $res = mysqli_query($dbconn, $sql);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $id_temp = $row['id'];
-                        $name_temp = $row['name'];
-                        echo "<option value=\"$id_temp\">$name_temp</option>";
-                    }
 
-                    ?>
-                </select>
-                <select name="tip_oglasa_id" id="" require>
-                    <option value="">-choose city-</option>
-                    <?php
-                    $sql = "SELECT * FROM tip_oglasa ";
-                    $res = mysqli_query($dbconn, $sql);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $id_temp = $row['id'];
-                        $name_temp = $row['naziv_oglasa'];
-                        echo "<option value=\"$id_temp\">$name_temp</option>";
-                    }
+                <div class="form-group">
+                    <label for="date">Datum izgradnje:</label>
+                    <input id="date" type="date" name="godina_izgradnje">
+                </div>
 
-                    ?>
-                </select>
-                <select name="tip_nekretnine_id" id="" require>
-                    <option value="">-choose city-</option>
-                    <?php
-                    $sql = "SELECT * FROM tip_nekretnine ";
-                    $res = mysqli_query($dbconn, $sql);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $id_temp = $row['id'];
-                        $name_temp = $row['tip'];
-                        echo "<option value=\"$id_temp\">$name_temp</option>";
-                    }
 
-                    ?>
-                </select>
+                <div class="form-group">
+                    <label for="desc">Opis:</label>
+                    <textarea id="desc" name="opis" cols="30" rows="10" placeholder="Opis"></textarea>
+                </div>
 
-                <input type="number" name="povrsina" placeholder="povrsina">
-                <input type="date" name="godina_izgradnje">
-                <textarea name="opis" cols="30" rows="10"></textarea>
-                <select name="nekretnina_status_id" id="" require>
-                    <option value="">-choose city-</option>
-                    <?php
-                    $sql = "SELECT * FROM status_nekretnina ";
-                    $res = mysqli_query($dbconn, $sql);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $id_temp = $row['id'];
-                        $name_temp = $row['status_nekretnine'];
-                        echo "<option value=\"$id_temp\">$name_temp</option>";
-                    }
+                <div class="form-group">
+                    <label for="nekretnina_status_id">Tip Nekretnine:</label>
 
-                    ?>
-                </select>
-                <input type="number" name="cijena" placeholder="cijena">
+                    <select class="form-control" name="nekretnina_status_id" id="nekretnina_status_id" require>
+                        <option value="">Izaberi status nekretnine</option>
+                        <?php
+                        $sql = "SELECT * FROM status_nekretnina ";
+                        $res = mysqli_query($dbconn, $sql);
+                        while ($row = mysqli_fetch_assoc($res)) {
+                            $id_temp = $row['id'];
+                            $name_temp = $row['status_nekretnine'];
+                            echo "<option value=\"$id_temp\">$name_temp</option>";
+                        }
 
-                <input type="file" name="fotografija_id">
+                        ?>
+                    </select>
+                </div>
 
-                <input type="file" name="naziv[]" multiple>
+                <div class="form-group">
+                    <label for="Cijena">Cijena:</label>
+                    <input type="number" name="cijena" id="cijena"> €
+                </div>
+
+
+                <label for="profilna">Izaberi fotografiju nekretine</label>
+                <input type="file" name="fotografija_id" id="profilna">
+                <label id="ostale" for="profilna">Dodaj jos fotografija te nekretnine</label>
+                <input type="file" name="naziv[]" id="ostale" multiple>
 
 
 
