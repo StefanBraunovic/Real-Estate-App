@@ -3,7 +3,7 @@
 include 'db.php';
 
 
-isset($_POST['tip']) ? $tip = $_POST['tip'] : exit("Greska 1 - morate unijeti ime");
+isset($_POST['tip']) ? $tip = $_POST['tip'] : exit("ID error");
 
 
 
@@ -16,11 +16,10 @@ $res_insert = mysqli_query($dbconn, $sql_insert);
 
 // ako je upit prosao
 if ($res_insert) {
-    header("location: index.php?msg=city_added");
+    header("location: index.php?msg=tip_added");
 } else {
-    // debuging ako upit ne prodje
 
-    exit("<pre>" . $sql_insert . "</pre>");
+
+
     header("location: index.php?msg=error");
-    // exit("greska pri dodavanju");
 }

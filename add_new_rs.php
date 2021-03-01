@@ -81,7 +81,7 @@ if (isset($_FILES['naziv'])) {
 
 // ako je upit prosao
 if ($res_insert) {
-    header("location: index.php?msg=contact_added");
+    header("location: index.php?msg=estate_added");
 } else {
     // debuging ako upit ne prodje
 
